@@ -19,17 +19,30 @@
  */
 
 var inorderTraversal = function (root) {
-    let arr = []
-    function dfs(root) {
-        if (!root) {
-            return
+    // let arr = []
+    // function dfs(root) {
+    //     if (!root) {
+    //         return
+    //     }
+    //     dfs(root.left)
+    //     arr.push(root.val)
+    //     dfs(root.right)
+    // }
+    // dfs(root)
+    // return arr
+
+    let res = []
+    let stack = []
+    while (stack.length || root) {
+        while(root) {
+            stack.push(root)
+            root = root.left
         }
-        dfs(root.left)
-        arr.push(root.val)
-        dfs(root.right)
+        let node = stack.pop()
+        res.push(node.val)
+        root = node.right
     }
-    dfs(root)
-    return arr
+    return res
 };
 // @lc code=end
 
