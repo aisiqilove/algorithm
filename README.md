@@ -1,154 +1,91 @@
-# 刷题
+## 算法刻意练习
 
-150题左右
+`极客大学算法训练营学习中`
 
-## 数据结构
+- outlies 《异类：不一样的成功启示录》
 
-1. 链表
+**如果想精通任何一个领域，主要是三步走的方式：**
 
-```js
-// 链表节点
-let sentry = {
-    next: head
-}
-let p = sentry
-while (p) {
-    p = p.next
-}
-return sentry.next
-```
+1. Chunk it up
+   1. 切碎知识点
+2. Deliberate Practicing
+   1. 刻意练习（五遍刷题）
+3. Feedback
+   1. 主动反馈
+   2. 被动反馈
 
-2. 数组
 
-```js
-for (let i= 0;i<arr.length; i==) {
-    arr[i]
-}
-```
+### 一、切碎知识点
 
-3. 树(培养算法思维刷爆)
+定义
+1. `数据结构`就是指一组数据的存储方法
+2. `算法`就是操作特定数据的一种方法
 
-```js
-//(二叉树)
+#### 数据结构
 
-function walk(treeNode) {
-    // 终止条件
-    if (!treeNode) return
-    // 处理treeNode
-    walk(treeNode.left)
-    // 处理treeNode
-    walk(treeNode.right)
-    // 处理treeNode
+- 一维数据结构
 
-}
+基础：数组（array）、链表（linklist）、
+高级：队列（queue 先进先出）、栈（stack 先进后出）、双端队列（deque）、集合（Set key、value同值 唯一）、映射（Map 保留添加顺序）
 
-```
+- 二维数据结构
 
-4. 字符串  字节面试喜欢问
+基础：树（tree 前中后序遍历、层序遍历 一维链表有两个分叉）、图（graph）
+高级：二叉搜索树（左叶子节点小于root，右叶子结点大于root 红黑、AVL）、堆（heap）、并查集、字典树
 
-## 算法思想
+- 特殊数据结构：
 
-1. 二分
-   1. 有序数组 找一个数
+位运算、布隆过滤器、LRU缓存
 
-```js
-    let left = 0
-    let right = arr.length - 1
-    while (left <= right) {
-        let mid = (left + right) >> 1
-        if (arr[mid] === target) {
-            return mid
-        } else if (arr[mid] < target) {
-            left = mid + 1
-        } else {
-            right = mid - 1
-        }
-    }
-```
+#### 算法八大特点
 
-1. 双指针 （快慢指针、头尾指针）
-   1. 链表、数组
+最开始的前三点（相当于几何的公理，**是所有的算法和数据结构的基石，任何的高级的数据结构到了最后都会装换成这三点**，所有复杂的算法其实就是找它的`重复单元`是什么，找`规律`）
 
-```js
-let fast = head
-let slow = head
-while(fast && fast.next) {
-    fast = fast.next.next
-    slow = slow.next
-}
-```
+1. if else switch
+2. for while loop
+3. 递归 Recursion
+4. 搜索search DFS深度优先 BFS广度优先
+5. 动态规划 Dynamic Programming
+6. 二分查找 Binary Search
+7. 贪心 Greedy
+8. 数学 Math、几何 Geometry
 
-3. 递归回溯 （递归树）
+### 二、刻意练习
 
-```js
-function backTrack(数据，路径缓存) {
-    // 终止条件
-    
-    循环：
-        标记
-        backTrack(数据，路径缓存)
-        撤销标记
-}
-```
+- 刻意练习---过数遍（五毒神掌）
+- 练习缺陷、弱点地方
+- 不舒服、不爽、枯燥是正常的
+- 生活中例子：乒乓球、台球、游戏等等
 
-4. 动态规划
 
-```js
-// 推导出状态转移方程
-// 找零钱[1,2,5] 11
-// dp[i] = Math.max(dp[10],dp[9],dp[6]) + 1
+### 三、反馈
 
-// 边界条件
-// 循环：
-//     递推公式
-// 循环硬币
-// dp[n] n为目标金额 的最优解
+**正反馈才是坚持的动力**
 
-```
+- 主动型反馈（自己去找）
+  - 高手代码（Github,leetcode,etc）
+  - 第一视角直播
+- 被动式反馈（高手给你指点）
+  - code review
+  - 教练看你打，给你反馈
 
-5. 贪心
-6. bfs（深度优先） dfs（回溯 广度优先）
+### 刷题技巧
 
-```js
-function DFS(treeNode) {
-    // 终止条件
-    if (!treeNode) return
-    // 处理treeNode
-    DFS(treeNode.left)
-    // 处理treeNode
-    DFS(treeNode.right)
-    // 处理treeNode
+**对于单个题目，写任何一个题目之前，要养成四步系统化的思考题目的方式（切题四件套）：**
 
-}
-```
-```js
-function BFS(root) {
-    let queue = [];
-    queue.push(root);
-    while (queue.length > 0) {
-        let current = queue.shift();
-        console.log(current.val);
-        if (current.left) {
-            queue.push(current.left)
-        }
-        if (current.right) {
-            queue.push(current.right)
-        }
-    }
-}
-```
+- Clarification(看清楚题目)
+- Possible solutions(想所有可能的解法，比较不同的方法的时间和空间复杂度)
+  - compare（time/space）
+  - optimal（加强）
+- Coding（多写）
+- Test cases(把测试样例能够列举几个)
 
-## 题型
+**对于任何题目，五遍刷题法（五毒神掌）：**
 
-1. 盛水
-2. 炒股
-3. 打劫
-4. 背包
-5. 零钱
-...
-
-## 拓展
-
-1. 图
-2. 哈希表
-...
+- 5-10分钟审题 （第一遍）
+- 有思路，自己开始；不然马上看题解
+- 默写、背诵、熟练
+- 然后再自己写一遍 （第二遍）
+- 隔一天（第三遍）
+- 一周（第四遍）
+- 面试前恢复性训练 提前一两周
