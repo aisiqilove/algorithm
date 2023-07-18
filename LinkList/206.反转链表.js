@@ -29,6 +29,15 @@ var reverseList = function(head) {
         cur = next
     }
     return prev
+
+    // 递归
+    // if(!head || !head.next) {
+    //     return head
+    // }
+    // let reverseHead = reverseList(next)
+    // head.next.next = head
+    // head.next = null
+    // return reverseHead
 };
 // @lc code=end
 
